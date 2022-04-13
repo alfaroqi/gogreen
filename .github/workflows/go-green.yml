@@ -13,6 +13,10 @@ jobs:
   auto_commit:
     runs-on: ubuntu-latest
     steps:
+     # See also: https://github.com/actions/checkout/issues/760
+      - name: work around permission issue
+        run: git config --global --add safe.directory /__w/gogreen/gogreen
+        
       - uses: actions/checkout@v2      
         with:
          persist-credentials: false
